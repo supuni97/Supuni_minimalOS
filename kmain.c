@@ -1,5 +1,14 @@
+#include "frame_buffer.h"
+#include "serial_port.h"
 
-    int kmain(int arg1, int arg2, int arg3)
-    {
-        return arg1 + arg2 + arg3;
+
+    
+    int main(){
+
+           char ptr2[] = "Welcome Supuni";
+   
+    
+    serial_write(0x3F8, ptr2, 14);
+    fb_write(ptr2, 14);
+    
     }
