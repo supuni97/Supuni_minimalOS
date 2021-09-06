@@ -4,20 +4,21 @@
 #include "keyboard.h"
 #include "interrupts.h"
 #include "start_program.h"
+#include "paging.h"
 
 
 /*function to intialize interrupts and segments*/
-void init_segments_interrupts(){
+void init(){
 	segments_install_gdt();
 	interrupts_install_idt();
+	init_paging();
 
 }
 
 /*kernal main funcion*/
-void kmain(unsigned int ebx){
+void kmain(){
 
-	init_segments_interrupts();   //initialize interrunpts and segments
-	run_custom_program(ebx);      //run the user program
-
+	init();   //initialize interrunpts and segments
+	
 
 }
